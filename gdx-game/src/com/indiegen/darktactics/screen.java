@@ -739,7 +739,7 @@ public class screen implements Screen, GestureListener, callBack
 								player.setPlayerState(stdPlayerState.ATTACKING);
 								//enemy.setHP(enemy.getHP()-player.getAttack());
 								assests.swordAttackSound.play();
-								//blood.createBlood(actor);
+								blood.createBlood(actor);
 								if (actor.getX() > player.getX())
 								{
 									player.setDir(1);
