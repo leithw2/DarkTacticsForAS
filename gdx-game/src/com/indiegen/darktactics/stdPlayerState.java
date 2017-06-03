@@ -307,6 +307,49 @@ public enum stdPlayerState implements StateMachine<MyActor>
 
 		}	
 
+	},
+	ITEM()
+	{
+
+		@Override
+		public Boolean enter(MyActor actor,float delta)
+		{
+			// TODO: Implement this method
+			actor.setFontAlpha(1);
+
+			return null;
+		}
+
+		@Override
+		public Boolean exit(MyActor actor,float delta)
+		{
+			// TODO: Implement this method
+			
+			return null;
+		}
+
+
+		@Override
+		public void update(MyActor actor,float delta)
+		{
+			// TODO: Implement this method
+			//if(enter(player,delta))
+			actor.setFontAlpha(actor.getFontAlpha()-1f*delta);
+			if(actor.getFontAlpha()<=0)
+			{
+				//if(actor.getName()=="player"){
+				actor.setPlayerState(stdPlayerState.FINISH);
+				
+			}
+			else
+			{
+
+			}
+			
+			//{
+
+		}	
+
 	}
 
 }

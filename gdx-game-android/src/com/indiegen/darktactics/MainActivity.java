@@ -9,6 +9,7 @@ import android.text.method.*;
 import android.view.*;
 import android.view.View.*;
 import android.widget.*;
+import android.media.*;
 
 public class MainActivity extends Activity implements OnClickListener
 {
@@ -16,7 +17,7 @@ public class MainActivity extends Activity implements OnClickListener
 	
 	Button starButton;
 	TextView link;
-	
+	MediaPlayer player;
 	@Override
 	public void onClick(View p1)
 	{
@@ -33,7 +34,10 @@ public class MainActivity extends Activity implements OnClickListener
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
 		starButton= new Button(this);
-		
+		player = MediaPlayer.create(this, R.raw.titlescreen);
+        player.setLooping(true); // Set looping
+        player.setVolume(100,100);
+		player.start();
 		
 		starButton = (Button)findViewById(R.id.button);
 		link = (TextView)findViewById(R.id.funding);
@@ -47,5 +51,24 @@ public class MainActivity extends Activity implements OnClickListener
 		//Intent i = new Intent(this,juego.class);
 		//startActivity(i);
 	}
+
+	@Override
+	protected void onPause()
+	{
+		// TODO: Implement this method
+		super.onPause();
+		player.pause();
+		
+	}
+
+	@Override
+	protected void onResume()
+	{
+		// TODO: Implement this method
+		super.onResume();
+		
+		player.start();
+	}
+	
 	
 }

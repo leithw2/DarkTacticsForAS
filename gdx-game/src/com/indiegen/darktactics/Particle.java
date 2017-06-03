@@ -81,7 +81,7 @@ public class Particle
 		setSize( (int)(rand.nextFloat() * (MaxSize-MinSize) + MinSize));
 		setAlpha(rand.nextFloat()*(maxAlpha-minAlpha)+minAlpha);
 		red=rand.nextFloat()*(MaxRed-MinRed)+MinRed;
-		setColor(new Color(0,0,red,getAlpha()));
+		setColor(new Color(red,0,0,getAlpha()));
 		
 	}
 	
@@ -91,7 +91,7 @@ public class Particle
 		delta += Gdx.graphics.getDeltaTime();
 		
 		setAlpha(getAlpha()-x*delta*delta);	
-		setColor(new Color(0,0,red,getAlpha()));
+		setColor(new Color(red,0,0,getAlpha()));
 		pos.set(pos.x+vel.x*acc.x*(1/delta),pos.y+vel.y*acc.y*(1/delta));
 		
 	}

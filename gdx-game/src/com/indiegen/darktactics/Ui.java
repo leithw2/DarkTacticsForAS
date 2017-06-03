@@ -37,6 +37,8 @@ public class Ui
 	CloseUp closeUp;
 	Texture guard;
 	Texture item;
+	Texture item2;
+	TextButtonStyle itemStyle;
 	
 	public  Ui(final callBack myCallBack, Assests assests){
 
@@ -52,6 +54,7 @@ public class Ui
 		walkbutton = new TextureRegion(assests.walkbutton,0,0,32,32);
 		guard = assests.guard;
 		item = assests.item;
+		item2 = assests.item2;
 		closeUp = new CloseUp(assests);
 		// Generate a 1x1 white texture and store it in the skin named "white".
 		Pixmap pixmap = new Pixmap(100, 100, Format.RGBA8888);
@@ -63,6 +66,7 @@ public class Ui
 		skin.add("upWalk",walkbutton);
 		skin.add("upGuard",guard);
 		skin.add("upItem",item);
+		skin.add("upItem2",item2);
 
 		// Store the default libgdx font under the name "default".
 		BitmapFont bfont=new BitmapFont();
@@ -98,7 +102,7 @@ public class Ui
 		guardStyle.font = skin.getFont("default");
 		skin.add("default", guardStyle);
 		
-		TextButtonStyle itemStyle = new TextButtonStyle();
+		itemStyle = new TextButtonStyle();
 		itemStyle.up = skin.newDrawable("upItem");
 		itemStyle.down = skin.newDrawable("down");
 		itemStyle.checked = skin.newDrawable("upItem");
@@ -146,10 +150,32 @@ public class Ui
 					myCallBack.buttonMove();
 				}
 			});
+			
+		getItemButton().addListener(new ChangeListener() {
+				public void changed(ChangeEvent event, Actor actor)
+				{
+					myCallBack.buttonItem();
+				}
+			});
+			
+		getGuardButton().addListener(new ChangeListener() {
+				public void changed(ChangeEvent event, Actor actor)
+				{
+					myCallBack.buttonGuard();
+				}
+			});
 		
 	}
 
-	
+	public void setUpItemSkin(){
+		itemStyle.up = skin.newDrawable("upItem2");
+		itemStyle.down = skin.newDrawable("down");
+		itemStyle.checked = skin.newDrawable("upItem2");
+		itemStyle.over = skin.newDrawable("white");
+
+		itemStyle.font = skin.getFont("default");
+		skin.add("default", itemStyle);
+	}
 
 	public void setCloseUp(CloseUp closeUp)
 	{
