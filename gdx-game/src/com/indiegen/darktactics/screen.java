@@ -19,43 +19,109 @@ import java.util.*;
 import com.badlogic.gdx.Game;
 
 
-public class screen implements Screen, GestureListener, callBack
+public class screen implements Screen, GestureListener, callBack, Levels
 {
+
+	@Override
+	public void initScreen()
+	{
+		// TODO: Implement this method
+
+		//uiText = "level 1 completed";
+
+		actors.clear();
+		stage.getActors().clear();
+
+		player = new stdPlayer(playerTexture);
+		player.setPosition(margen * 1, margen * 1);
+		//player.setHP(200);
+		healthBar.setBarHP(80);
+		healthBar.maxHP = 120;
+		floor.setX(0);
+		floor.setY(0);
+		floor.setWidth(margen * 8);
+		player.setHeight(margen);
+		floor.setHeight(8 * .99f * margen * texture.getHeight() / texture.getWidth());
+		actors.add(player);
+
+		actingActor = dummy;
+		state = screenState.START;
+
+		music1.setLooping(true);
+		music1.play();
+		music1.setVolume(0);
+
+		actors.add(new stdEnemy(enemyTexture, margen * 4, margen * 5, "1"));
+		actors.add(new stdEnemy(enemyTexture, margen * 10, margen * 6, "2"));
+		actors.add(new stdEnemy(enemyTexture, margen * 5, margen * 5, "3"));
+		actors.add(new stdEnemy(enemyTexture, margen * 3, margen * 1, "4"));
+
+		for (MyActor actor : actors)
+		{
+			stage.addActor(actor);
+		}
+		readys.clear();
+
+		stage.addActor(blood);
+
+		
+		
+		
+	}
+	
 
 	@Override
 	public void buttonItem()
 	{
 		// TODO: Implement this method
-		
+
 		if (player.getPlayerState() == stdPlayerState.ITEM)
 		{
 			player.setPlayerState(stdPlayerState.READY);
 		}
 		else
 		{
-			if (player.getPlayerState() == stdPlayerState.READY && player.getPotions()>0)
+			if (player.getPlayerState() == stdPlayerState.READY && player.getPotions() > 0)
 			{
 				player.setPlayerState(stdPlayerState.ITEM);
-				
-					player.setHP(player.getHP()+40);
-					player.setPotions(player.getPotions()-1);
-					ui.setUpItemSkin();
-					
+
+				player.setHP(player.getHP() + 40);
+				player.setPotions(player.getPotions() - 1);
+				ui.setUpItemSkin();
+
 				actingActor = player;
+				player.setFatigue(30);
+				
 				assests.potionSound.play();
+				//thisGame.setScreen(new screen(thisGame,batch));
 			}
 		}
-		
-		
-		
+
+
+
 	}
 
 	@Override
 	public void buttonGuard()
 	{
 		// TODO: Implement this method
+		if (player.getPlayerState() == stdPlayerState.GUARD)
+		{
+			player.setPlayerState(stdPlayerState.READY);
+		}
+		else
+		{
+			if (player.getPlayerState() == stdPlayerState.READY)
+			{
+				player.setPlayerState(stdPlayerState.GUARD);
+				//drawRects(player);
+				actingActor = player;
+				player.setFatigue(player.GUARD);
+				//music2.play();
+			}
+		}
 	}
-	
+
 
 	@Override
 	public void buttonAttack()
@@ -82,9 +148,6 @@ public class screen implements Screen, GestureListener, callBack
 	public void buttonMove()
 	{
 		// TODO: Implement this method
-
-
-
 		if (player.getPlayerState() == stdPlayerState.WAITING_TO_MOVE)
 		{
 			player.setPlayerState(stdPlayerState.READY);
@@ -226,8 +289,8 @@ public class screen implements Screen, GestureListener, callBack
 
 		music2 = assests.music;
 		music1 = assests.music2;
-		
-		
+
+
 		texture = assests.texture;
 		playerTexture  = assests.hero21;
 		enemyTexture = assests.enemy;
@@ -287,49 +350,8 @@ public class screen implements Screen, GestureListener, callBack
 
 
 	}
-	void initScreen()
-	{
-		//uiText = "level 1 completed";
+	
 
-
-		actors.clear();
-		stage.getActors().clear();
-
-		player = new stdPlayer(playerTexture);
-		player.setPosition(margen * 1, margen * 1);
-		//player.setHP(200);
-		healthBar.setBarHP(80);
-		healthBar.maxHP = 120;
-		floor.setX(0);
-		floor.setY(0);
-		floor.setWidth(margen * 8);
-		player.setHeight(margen);
-		floor.setHeight(8 * .99f * margen * texture.getHeight() / texture.getWidth());
-		actors.add(player);
-
-		actingActor = dummy;
-		state = screenState.START;
-		
-		music1.setLooping(true);
-		music1.play();
-		music1.setVolume(0);
-
-		actors.add(new stdEnemy(enemyTexture, margen * 4, margen * 5, "1"));
-		actors.add(new stdEnemy(enemyTexture, margen * 10, margen * 6, "2"));
-		actors.add(new stdEnemy(enemyTexture, margen * 5, margen * 5, "3"));
-		actors.add(new stdEnemy(enemyTexture, margen * 3, margen * 1, "4"));
-
-		for (MyActor actor : actors)
-		{
-			stage.addActor(actor);
-		}
-		readys.clear();
-
-		stage.addActor(blood);
-
-
-		
-	}
 
 	@Override
 	public void render(float delta)
@@ -344,26 +366,32 @@ public class screen implements Screen, GestureListener, callBack
 		batch.setProjectionMatrix(camera.combined);
 		shape.setProjectionMatrix(camera.combined);
 
-		
-		if( music1.getPosition()<=3 && music1.getVolume()<=1)	
+
+		if (music1.getPosition() <= 3 && music1.getVolume() <= 1)	
 		{
-			music1.setVolume(music1.getVolume()+0.03f);
+			music1.setVolume(music1.getVolume() + 0.03f);
 		}
-		if( music1.getPosition()>=71 && music1.getVolume()>=0)	
+		if (music1.getPosition() >= 71 && music1.getVolume() >= 0)	
 		{
-			music1.setVolume(music1.getVolume()-0.03f);
+			music1.setVolume(music1.getVolume() - 0.03f);
 
 		}
-			
+
 
 		for (MyActor actor : actors)
 		{
 			if (actor.getPlayerState() == stdPlayerState.FINISH)
 			{
-				actingActor = dummy;
+				//actingActor = dummy;
 				actor.setPlayerState(stdPlayerState.WAITING);
 			}
+			if(actor.getHP()<=0)
+			{
+				actor.dead();
+				actor.setPlayerState(stdPlayerState.FINISH);
 
+			}
+			
 
 		}
 
@@ -386,32 +414,28 @@ public class screen implements Screen, GestureListener, callBack
 			AIturn();
 		}
 		ui.getMessage().setText("");	
-
-		//text="";
+	
 		maps.drawMap(batch, font, text);
 		ui.getHealthBar().setBarHP(player.getHP());
 
-		//text="";
 		if (actingActor == player && player.getPlayerState() == stdPlayerState.WAITING_TO_MOVE)
 		{
 			ui.getMessage().setText("Select Direction");
 		}
-
 
 		if (actingActor == player && player.getPlayerState() == stdPlayerState.ATTACK_TARGETING)
 		{
 			ui.getMessage().setText("Select Target");
 		}
 		
+		
 		stage.draw();
 		stage.act();
 		drawLights();
 
-
 		uiStage.draw();
 		removeDeads();
 		drawTurns();
-
 
 	}
 
@@ -434,7 +458,8 @@ public class screen implements Screen, GestureListener, callBack
 			uiStage.getBatch().end();
 
 			turn++;
-			if(turn>=7){
+			if (turn >= 7)
+			{
 				break;
 			}
 
@@ -545,13 +570,13 @@ public class screen implements Screen, GestureListener, callBack
 
 					actor.setPlayerState(stdPlayerState.READY);
 					actingActor = actor;
-					//actingActor.Acting(true);
+					
 
 
 					if (readys.size() <= 5)
 					{
 						readys.add(actor);
-						//actor.setFatigue(20);
+						
 					}
 
 				}
@@ -581,6 +606,7 @@ public class screen implements Screen, GestureListener, callBack
 					//actingActor = actor;
 					//actingActor.Acting(true);
 					readys.add(actor);
+					//actor.setDefence(0);
 					actor.setFatigue(20);
 				}
 			}
@@ -941,6 +967,7 @@ public class screen implements Screen, GestureListener, callBack
 		batch.draw(assests.light, 64 * 3 - lightSize / 4 - 32, -lightSize / 4 - 32, lightSize, lightSize);
 		batch.draw(assests.light, 64 * 0 - lightSize / 4 - 32, 64 * 6 - lightSize / 4 - 32, lightSize, lightSize);
 		batch.draw(assests.light, 64 * 4 - lightSize / 4 - 32, 64 * 2 - lightSize / 4 - 32, lightSize, lightSize);
+		batch.draw(assests.light, 64 * 6 - lightSize / 4 - 32, 64 * 3 - lightSize / 4 - 32, lightSize, lightSize);
 		batch.end();
 
 		stage.getBatch().begin();
@@ -950,6 +977,7 @@ public class screen implements Screen, GestureListener, callBack
 		stage.getBatch().draw(assests.light, 64 * 3 - lightSize / 4 - 32, -lightSize / 4 - 32, lightSize, lightSize);
 		stage.getBatch().draw(assests.light, 64 * 0 - lightSize / 4 - 32, 64 * 6 - lightSize / 4 - 32, lightSize, lightSize);
 		stage.getBatch().draw(assests.light, 64 * 4 - lightSize / 4 - 32, 64 * 2 - lightSize / 4 - 32, lightSize, lightSize);
+		stage.getBatch().draw(assests.light, 64 * 6 - lightSize / 4 - 32, 64 * 3 - lightSize / 4 - 32, lightSize, lightSize);
 		//stage.getBatch().draw(assests.light, 0, 0, 400, 400);
 		stage.getBatch().end();
 

@@ -10,6 +10,20 @@ public class MyActor extends Actor implements stdActor
 {
 
 	@Override
+	public void setDefence(int defence)
+	{
+		// TODO: Implement this method
+	}
+
+	@Override
+	public int getDefence()
+	{
+		// TODO: Implement this method
+		return 0;
+	}
+
+
+	@Override
 	public TextureRegion getTurnTexture()
 	{
 		// TODO: Implement this method
@@ -152,7 +166,7 @@ public class MyActor extends Actor implements stdActor
 	public int getAttack()
 	{
 		// TODO: Implement this method
-		return attack;
+		return 0;
 	}
 
 

@@ -14,6 +14,20 @@ class stdEnemy extends MyActor implements stdActor
 {
 
 	@Override
+	public void setDefence(int defence)
+	{
+		// TODO: Implement this method
+	}
+
+	@Override
+	public int getDefence()
+	{
+		// TODO: Implement this method
+		return 0;
+	}
+
+
+	@Override
 	public TextureRegion getTurnTexture()
 	{
 		// TODO: Implement this method
@@ -80,6 +94,11 @@ class stdEnemy extends MyActor implements stdActor
 				animation=walk;
 				break;
 			case 2:
+
+				animation=attackAnimation;
+				break;
+				
+			case 3:
 
 				animation=attackAnimation;
 				break;
@@ -277,16 +296,17 @@ class stdEnemy extends MyActor implements stdActor
 
 	stdPlayerState actorState;
 	boolean acting=false;
+	int attack=0;
 
 
 	public stdEnemy(Texture settexture)
 	{
-		setHP(20);
+		setHP(200);
 		maxHP=80;
 		texture = settexture;
 		
 
-		attack = 10;
+		attack = 15;
 		rects = new ArrayList<MyRect>();
 
 		setWidth(margen);
@@ -330,12 +350,12 @@ class stdEnemy extends MyActor implements stdActor
 
 	public stdEnemy(Texture settexture, int x, int y,String name)
 	{
-		setHP(20);
-		maxHP=80;
+		setHP(190);
+		maxHP=190;
 		texture = settexture;
 		setName("Skeleton "+ name);
 
-		attack = 10;
+		attack = 15;
 		rects = new ArrayList<MyRect>();
 
 		setWidth(margen * (texture.getWidth() / texture.getHeight()));

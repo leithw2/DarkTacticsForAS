@@ -30,8 +30,8 @@ public class HealthBar extends Actor
 		shape = new ShapeRenderer();
 		text="";
 		font = new BitmapFont();
-		setBarHP(100);
-		setMaxHP(80);
+		setBarHP(160);
+		setMaxHP(160);
 		setBarMP(80);
 
 	}
@@ -83,7 +83,7 @@ public class HealthBar extends Actor
 		
 		
 		shape.setColor(Color.RED);
-		shape.rect(66, 50, barHP*80/getMaxHP(), 6);
+		shape.rect(66, 50, getBarHP()*80/getMaxHP(), 6);
 
 		shape.setColor(Color.BLACK);
 		shape.rect(66,43,80,3);	

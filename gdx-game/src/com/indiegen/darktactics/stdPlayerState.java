@@ -14,6 +14,7 @@ public enum stdPlayerState implements StateMachine<MyActor>
 			// TODO: Implement this method
 			actor.addAction(Actions.moveTo(actor.getCurX(),actor.getCurY(),.5f));
 			actor.setAnimation(1);
+			actor.setDefence(0);
 			
 			return null;
 		}
@@ -130,6 +131,7 @@ public enum stdPlayerState implements StateMachine<MyActor>
 		{
 			// TODO: Implement this method
 			actor.setAnimation(2);
+			actor.setDefence(0);
 
 			return null;
 		}
@@ -196,7 +198,7 @@ public enum stdPlayerState implements StateMachine<MyActor>
 		public Boolean enter(MyActor actor,float delta)
 		{
 			// TODO: Implement this method
-			actor.setAnimation(0);
+			//actor.setAnimation(0);
 			return null;
 		}
 
@@ -316,6 +318,7 @@ public enum stdPlayerState implements StateMachine<MyActor>
 		{
 			// TODO: Implement this method
 			actor.setFontAlpha(1);
+			actor.setDefence(0);
 
 			return null;
 		}
@@ -347,6 +350,37 @@ public enum stdPlayerState implements StateMachine<MyActor>
 			}
 			
 			//{
+
+		}	
+
+	},
+	GUARD()
+	{
+
+		@Override
+		public Boolean enter(MyActor actor,float delta)
+		{
+			// TODO: Implement this method
+			actor.setAnimation(3);
+			actor.setDefence(10);
+			
+			return null;
+		}
+
+		@Override
+		public Boolean exit(MyActor actor,float delta)
+		{
+			// TODO: Implement this method
+			//actor.setAnimation(0);
+			return null;
+		}
+
+
+		@Override
+		public void update(MyActor actor,float delta)
+		{
+			// TODO: Implement this method
+			actor.setPlayerState(stdPlayerState.FINISH);		
 
 		}	
 

@@ -13,6 +13,18 @@ import java.util.*;
 class stdPlayer extends MyActor implements stdActor
 {
 
+	@Override
+	public void setDefence(int defence)
+	{
+		this.defence = defence;
+	}
+
+	@Override
+	public int getDefence()
+	{
+		return defence;
+	}
+
 	public void setPotions(int potions)
 	{
 		this.potions = potions;
@@ -84,7 +96,7 @@ class stdPlayer extends MyActor implements stdActor
 	
 	final int WALK=20;
 	final int RUN=50;
-	final int GUARD=20;
+	final int GUARD=10;
 	final int HEAVYATTACK=90;
 	final int ROLL=30;
 	final int JUMP=50;
@@ -97,11 +109,15 @@ class stdPlayer extends MyActor implements stdActor
 	TextureRegion[] attackFrames;
 	TextureRegion[] waitFrames;
 	TextureRegion[] walkFrames;
+	TextureRegion[] guardFrames;
 	TextureRegion currentFrame;
 	TextureRegion turnTexture;
+	
 	Animation attackAnimation;
 	Animation waitAnimation;
 	Animation walkAnimation;
+	Animation guardAnimation;
+	
 	
 	BoundingBox boundingBox;
 	Rectangle rectangle;
@@ -125,11 +141,14 @@ class stdPlayer extends MyActor implements stdActor
 	float curY;
 	stdPlayerState actorState;
 	int HP;
-	int maxHP=80;
+	int maxHP=160;
 	boolean dead=false;
 	int fatigue=0;
 	Boolean acting=false;
 	int potions = 1;
+	int defence=0;
+	int attack=0;
+	
 	
 	
 	public stdPlayer(Texture settexture)
@@ -176,7 +195,12 @@ class stdPlayer extends MyActor implements stdActor
 
 		walkAnimation = new Animation(0.8f, walkFrames);
 		
+		guardFrames = new TextureRegion[1];
+
+		guardFrames[0] = new TextureRegion(texture, 96, 64, 32, 32);
+		//guardFrames[1] = new TextureRegion(texture, 96, 32, 32, 32);
 		
+		guardAnimation = new Animation(0.8f, guardFrames);
 		
 		setAnimation(0);
         currentFrame = getAnimation().getKeyFrame(delta,true);
@@ -278,6 +302,11 @@ class stdPlayer extends MyActor implements stdActor
 
 				animation=attackAnimation;
 				break;
+				
+			case 3:
+
+				animation=guardAnimation;
+				break;
 
 		}
 	}
@@ -311,14 +340,22 @@ class stdPlayer extends MyActor implements stdActor
 	public void setDamage(int damage)
 	{
 		// TODO: Implement this method
-		this.damage=damage;
-		setHP(getHP() - damage);
+		
+		
+		this.damage=damage-getDefence();
+		if(this.damage<0)
+			this.damage=0;
+		
+		setHP(getHP() - this.damage);
 	}
 
 	@Override
 	public int getDamage()
 	{
 		// TODO: Implement this method
+		
+		
+		
 		return damage;
 	}
 

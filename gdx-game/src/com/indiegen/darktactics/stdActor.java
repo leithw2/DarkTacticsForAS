@@ -21,7 +21,6 @@ public interface stdActor
 	public void setFontAlpha(float fontAlpha);
 	public float getFontAlpha();
 	
-	
 	public void setAttack(int attack)
 	public int getAttack()
 
@@ -75,7 +74,7 @@ public interface stdActor
 	public BitmapFont font;
 	public int margen = 60;
 	public int speed = 60;
-	public int attack;
+	//public int attack;
 	
 	public void setFatigue(int fatigue);
 	public int getFatigue();
@@ -85,5 +84,9 @@ public interface stdActor
 	
 	public TextureRegion getTurnTexture();
 	public void setTurnTexture(TextureRegion turnTexture);
+	
+	public void setDefence(int defence);
+	public int getDefence();
+	
 	//public enum stdState{WAITING, ACTING, MOVING, ATTACKING, CHARGING, GUARDING, ITEM_USING,GET_HITTING }
 }
