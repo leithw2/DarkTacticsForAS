@@ -9,6 +9,13 @@ public interface stdActor
 {
 	public Vector2 getPosMap();
 	
+	public void setTexture(Texture texture);
+	public Texture getTexture();
+	
+	
+	
+
+	
 	public void setAnimation(int animations);
 	public Animation getAnimation();
 	public boolean isAnimationFinished();
@@ -87,6 +94,8 @@ public interface stdActor
 	
 	public void setDefence(int defence);
 	public int getDefence();
+	
+	public void initialice();
 	
 	//public enum stdState{WAITING, ACTING, MOVING, ATTACKING, CHARGING, GUARDING, ITEM_USING,GET_HITTING }
 }

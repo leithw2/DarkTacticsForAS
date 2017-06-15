@@ -14,6 +14,20 @@ class stdPlayer extends MyActor implements stdActor
 {
 
 	@Override
+	public void setTexture(Texture texture)
+	{
+		// TODO: Implement this method
+	}
+
+	@Override
+	public Texture getTexture()
+	{
+		// TODO: Implement this method
+		return null;
+	}
+
+
+	@Override
 	public void setDefence(int defence)
 	{
 		this.defence = defence;

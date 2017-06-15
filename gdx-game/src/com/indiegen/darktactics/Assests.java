@@ -15,6 +15,7 @@ public class Assests
 	public Texture hero21 = new Texture(Gdx.files.internal("hero22.png"));
 	public Texture tiles = new Texture(Gdx.files.internal("tiles.png"));
 	public Texture enemy = new Texture(Gdx.files.internal("skull.png"));
+	public Texture kingSkeleton = new Texture(Gdx.files.internal("Boss4.png"));
 	public Texture button1 = new Texture(Gdx.files.internal("sword.png"));
 	public Texture walkbutton = new Texture(Gdx.files.internal("walkbutton2.png"));
 	public Texture Background = new Texture(Gdx.files.internal("Background.png"));
