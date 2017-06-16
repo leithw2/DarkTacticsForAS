@@ -12,9 +12,10 @@ public class Assests
 	public Texture texture = new Texture(Gdx.files.internal("floor.png"));
     
 	//public Texture hero = new Texture(Gdx.files.internal("hero.jpg"));
-	public Texture hero21 = new Texture(Gdx.files.internal("hero21.png"));
+	public Texture hero21 = new Texture(Gdx.files.internal("hero22.png"));
 	public Texture tiles = new Texture(Gdx.files.internal("tiles.png"));
 	public Texture enemy = new Texture(Gdx.files.internal("skull.png"));
+	public Texture kingSkeleton = new Texture(Gdx.files.internal("Boss4.png"));
 	public Texture button1 = new Texture(Gdx.files.internal("sword.png"));
 	public Texture walkbutton = new Texture(Gdx.files.internal("walkbutton2.png"));
 	public Texture Background = new Texture(Gdx.files.internal("Background.png"));
@@ -32,5 +33,6 @@ public class Assests
 	public Texture item = new Texture(Gdx.files.internal("item.png"));
 	public Texture item2 = new Texture(Gdx.files.internal("item2.png"));
 }
+
 
 

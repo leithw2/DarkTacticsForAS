@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.indiegen.darktactics"
-    android:versionCode="9"
-    android:versionName="0.0.0650" >
+    android:versionCode="10"
+    android:versionName="0.0.0870" >
 
     <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="17" />
 
@@ -24,7 +24,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                
             </intent-filter>
 		</activity>
     </application>

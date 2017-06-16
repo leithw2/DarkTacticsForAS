@@ -277,8 +277,7 @@ class stdEnemy extends MyActor implements stdActor
 
 	stdPlayerState actorState;
 	boolean acting=false;
-	int attack=0;
-	BitmapFont font;
+
 
 	public stdEnemy(Texture settexture)
 	{
@@ -331,7 +330,6 @@ class stdEnemy extends MyActor implements stdActor
 
 	public stdEnemy(Texture settexture, int x, int y,String name)
 	{
-		font = new BitmapFont();
 		setHP(20);
 		maxHP=80;
 		texture = settexture;
