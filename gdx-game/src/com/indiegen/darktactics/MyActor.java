@@ -152,7 +152,7 @@ public class MyActor extends Actor implements stdActor
 	public int getAttack()
 	{
 		// TODO: Implement this method
-		return attack;
+		return 0;
 	}
 
 

@@ -1,9 +1,10 @@
 package com.indiegen.darktactics;
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.*;
-import com.badlogic.gdx.math.*;
-import com.badlogic.gdx.math.collision.*;
-import org.apache.http.conn.util.*;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.collision.BoundingBox;
 
 public interface stdActor
 {
@@ -22,8 +23,8 @@ public interface stdActor
 	public float getFontAlpha();
 	
 	
-	public void setAttack(int attack)
-	public int getAttack()
+	public void setAttack(int attack);
+	public int getAttack();
 
 	public void setHP(int HP);
 	public int getHP();
@@ -64,7 +65,7 @@ public interface stdActor
 
 	public boolean isTouched(float x, float y);
 	
-	public void setPlayerState(stdPlayerState playerState)
+	public void setPlayerState(stdPlayerState playerState);
 	public stdPlayerState getPlayerState();
 	
 	public void moveRects();
@@ -72,10 +73,10 @@ public interface stdActor
 	
 	public int getSpeed();
 	
-	public BitmapFont font;
+
 	public int margen = 60;
 	public int speed = 60;
-	public int attack;
+
 	
 	public void setFatigue(int fatigue);
 	public int getFatigue();

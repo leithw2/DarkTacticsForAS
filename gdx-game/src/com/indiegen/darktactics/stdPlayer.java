@@ -13,16 +13,6 @@ import java.util.*;
 class stdPlayer extends MyActor implements stdActor
 {
 
-	public void setPotions(int potions)
-	{
-		this.potions = potions;
-	}
-
-	public int getPotions()
-	{
-		return potions;
-	}
-
 	@Override
 	public TextureRegion getTurnTexture()
 	{
@@ -81,7 +71,6 @@ class stdPlayer extends MyActor implements stdActor
 	}
 
 	final int ATTACK=50;
-	
 	final int WALK=20;
 	final int RUN=50;
 	final int GUARD=20;
@@ -91,6 +80,8 @@ class stdPlayer extends MyActor implements stdActor
 	final int WAIT=10;
 	final int ITEM=50;
 	final int HURTS=10;
+	
+	
 	
 	
 	Texture texture;
@@ -125,12 +116,10 @@ class stdPlayer extends MyActor implements stdActor
 	float curY;
 	stdPlayerState actorState;
 	int HP;
-	int maxHP=80;
 	boolean dead=false;
 	int fatigue=0;
 	Boolean acting=false;
-	int potions = 1;
-	
+	int attack;
 	
 	public stdPlayer(Texture settexture)
 	{
@@ -138,7 +127,7 @@ class stdPlayer extends MyActor implements stdActor
 		rects = new ArrayList<MyRect>();
 		boundingBox = new BoundingBox();
 		
-		setHP(maxHP);
+		setHP(80);
 		setAttack(30);
 		texture = settexture;
 		
@@ -149,6 +138,7 @@ class stdPlayer extends MyActor implements stdActor
 		setHeight(margen);
 		rectangle = new Rectangle(getX(), getY(), margen, margen);
 
+
 		attackFrames = new TextureRegion[7];
 
 		attackFrames[0] = new TextureRegion(texture, 0, 0, 32, 32);
@@ -158,7 +148,9 @@ class stdPlayer extends MyActor implements stdActor
 //		attackFrames[1] = new TextureRegion(texture, 32, 32, 32, 32);
 		attackFrames[4] = new TextureRegion(texture, 32, 32, 32, 32);
 		attackFrames[6] = new TextureRegion(texture, 64, 32, 32, 32);
-		attackFrames[5] = new TextureRegion(texture, 64, 32, 32, 32);	
+		attackFrames[5] = new TextureRegion(texture, 64, 32, 32, 32);
+		
+		
 
 		attackAnimation = new Animation(.08f, attackFrames);
 
@@ -208,18 +200,6 @@ class stdPlayer extends MyActor implements stdActor
 		{
 			batch.setColor(Color.WHITE);
 		}
-		if(getPlayerState()==stdPlayerState.ITEM)
-		{
-			batch.setColor(1-fontAlpha,1,1-fontAlpha,1);
-			font.setColor(0,1,0,fontAlpha);
-			font.setScale(1f);
-			font.draw(batch,"+40 "+" HP", getX(), getY()+margen+margen*(1-fontAlpha)/2);
-		}
-		else
-		{
-			batch.setColor(Color.WHITE);
-		}
-		
 		if (getPlayerState() == stdPlayerState.WAITING_TO_MOVE || getPlayerState() == stdPlayerState.ATTACK_TARGETING)
 		{
 			batch.end();	
@@ -356,10 +336,6 @@ class stdPlayer extends MyActor implements stdActor
 	{
 		// TODO: Implement this method
 		this.HP=HP;
-		if(this.HP>maxHP){
-			this.HP=maxHP;
-		}
-		
 	}
 
 	@Override

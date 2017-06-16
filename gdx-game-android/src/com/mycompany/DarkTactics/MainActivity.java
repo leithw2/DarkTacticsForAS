@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.indiegen.darktactics.game;
 
 public class MainActivity extends AndroidApplication {
     @Override

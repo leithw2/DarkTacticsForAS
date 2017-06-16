@@ -15,7 +15,7 @@ public class game extends Game implements ApplicationListener
 	Assests assests;
 	
 	
-	game() 
+	public game()
 	{
 		//assests = new Assests();
 	}
