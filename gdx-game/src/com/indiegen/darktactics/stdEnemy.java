@@ -257,7 +257,7 @@ class stdEnemy extends MyActor implements stdActor
 	Rectangle rectDown;
 	Rectangle rectLeft;
 	Rectangle rectRight;
-	int margen=64;
+	//int margen;
 	int velX=0;
 	Color color;
 	int FRAME_COLS=3;
@@ -277,7 +277,8 @@ class stdEnemy extends MyActor implements stdActor
 
 	stdPlayerState actorState;
 	boolean acting=false;
-
+int attack;
+	BitmapFont font;
 
 	public stdEnemy(Texture settexture)
 	{
@@ -289,6 +290,7 @@ class stdEnemy extends MyActor implements stdActor
 		attack = 10;
 		rects = new ArrayList<MyRect>();
 
+		//margen = 64;
 		setWidth(margen);
 		setHeight(margen);
 
@@ -338,6 +340,7 @@ class stdEnemy extends MyActor implements stdActor
 		attack = 10;
 		rects = new ArrayList<MyRect>();
 
+		int margen = 64;
 		setWidth(margen * (texture.getWidth() / texture.getHeight()));
 		setHeight(margen);
 

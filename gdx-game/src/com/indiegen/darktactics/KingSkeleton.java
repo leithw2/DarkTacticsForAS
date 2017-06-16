@@ -16,13 +16,13 @@ public class KingSkeleton extends stdEnemy implements stdActor
 		setHP(190);
 		maxHP=190;
 		
-		margen=64;
+		int margen=64;
 		setHeight(128);
 		setWidth(128);
 
-		setName("Skeleton "+ name);
+		setName("Skeleton "+ "King");
 
-		attack = 15;
+		//attack = 15;
 
 		rectangle = new Rectangle(getX(), getY(), margen, margen);	
 		dir = 1;
@@ -100,9 +100,7 @@ public class KingSkeleton extends stdEnemy implements stdActor
 		rects.add(new MyRect(getX() + margen, getY(), margen, margen/2));
 
 	}
-	
-	
-	@Override
+
 	KingSkeleton(Texture settexture,int x, int y, String name){
 		super(settexture,x,y,name);
 		

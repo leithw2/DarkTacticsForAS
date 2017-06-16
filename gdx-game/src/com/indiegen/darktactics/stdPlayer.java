@@ -130,7 +130,7 @@ class stdPlayer extends MyActor implements stdActor
 	int fatigue=0;
 	Boolean acting=false;
 	int potions = 1;
-	
+	int attack;
 	
 	public stdPlayer(Texture settexture)
 	{

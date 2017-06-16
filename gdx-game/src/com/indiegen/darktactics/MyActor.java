@@ -9,13 +9,12 @@ import com.badlogic.gdx.graphics.*;
 public class MyActor extends Actor implements stdActor
 {
 
-	@Override
+
 	public void setTexture(Texture texture)
 	{
 		// TODO: Implement this method
 	}
 
-	@Override
 	public Texture getTexture()
 	{
 		// TODO: Implement this method
@@ -23,20 +22,18 @@ public class MyActor extends Actor implements stdActor
 	}
 
 
-	@Override
 	public void initialice()
 	{
 		// TODO: Implement this method
 	}
 
 
-	@Override
 	public void setDefence(int defence)
 	{
 		// TODO: Implement this method
 	}
 
-	@Override
+
 	public int getDefence()
 	{
 		// TODO: Implement this method
