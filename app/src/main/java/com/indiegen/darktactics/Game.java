@@ -1,11 +1,12 @@
 package com.indiegen.darktactics;
 
-import android.os.*;
-import com.badlogic.gdx.backends.android.*;
 
+import android.os.Bundle;
 
+import com.badlogic.gdx.backends.android.AndroidApplication;
+import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
-public class Game extends AndroidApplication{
+public class Game extends AndroidApplication {
 	game initgame;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
