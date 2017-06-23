@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">DarkTactics</string>
-	
-	<string name="start" > Empezar</string>
-	<string name="tutorial" >Turorial: Juego en proceso \n1: Presiona empezar para iniciar \n2: Con los botones de abajo seleciona atacar o caminar</string>
-	<string name="link"> Apoya con una donacion en: <a href="https://igg.me/at/DarkTactics">\nIndiegogo</a></string>
-	
-</resources>
