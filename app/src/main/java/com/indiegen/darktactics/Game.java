@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.indiegen.darktactics.game.game;
 
 public class Game extends AndroidApplication {
     private game initgame;

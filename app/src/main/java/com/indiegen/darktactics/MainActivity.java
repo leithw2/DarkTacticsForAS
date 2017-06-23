@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    game initgame;
-
     private Button starButton;
     private TextView link;
     private MediaPlayer player;
