@@ -1,6 +1,5 @@
 package com.indiegen.darktactics;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button starButton;
-    private TextView link;
     private MediaPlayer player;
 
     @Override
@@ -24,7 +22,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Intent i = new Intent(this, Game.class);
             startActivity(i);
         }
-        // TODO: Implement this method
     }
 
     @Override
@@ -39,7 +36,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         player.start();
 
         starButton = (Button) findViewById(R.id.button);
-        link = (TextView) findViewById(R.id.funding);
+        TextView link = (TextView) findViewById(R.id.funding);
         link.setMovementMethod(LinkMovementMethod.getInstance());
 
         starButton.setOnClickListener(this);
