@@ -1,15 +1,16 @@
 package com.indiegen.darktactics;
 
-public interface callBack
-{
-	
-	public void buttonExit();
-	public void buttonRestart();
-	public void buttonAttack();
-	public void buttonMove();
+public interface callBack {
 
+    public void buttonExit();
 
-	void buttonItem();
+    public void buttonRestart();
 
-	void buttonGuard();
+    public void buttonAttack();
+
+    public void buttonMove();
+
+    void buttonItem();
+
+    void buttonGuard();
 }

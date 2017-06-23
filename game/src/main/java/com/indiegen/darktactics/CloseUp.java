@@ -1,30 +1,25 @@
 package com.indiegen.darktactics;
 
-import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.*;
-import com.badlogic.gdx.graphics.glutils.*;
-import com.badlogic.gdx.scenes.scene2d.*;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class CloseUp extends Actor
-{
+public class CloseUp extends Actor {
 
-	ShapeRenderer shape;
-	Texture closeUp;
-	Assests assests;
+    ShapeRenderer shape;
+    Texture closeUp;
+    Assests assests;
 
-    public CloseUp(Assests assests)
-	{
-		this.assests = assests;
-		closeUp=assests.heroCloseUp;
-		
-	}
+    public CloseUp(Assests assests) {
+        this.assests = assests;
+        closeUp = assests.heroCloseUp;
 
-	
+    }
 
     @Override
-    public void draw(Batch batch, float parentAlpha)
-	{  
-	
-		batch.draw(closeUp,0,0,64,64);
-	}
+    public void draw(Batch batch, float parentAlpha) {
+
+        batch.draw(closeUp, 0, 0, 64, 64);
+    }
 }

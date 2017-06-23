@@ -1,8 +1,7 @@
 package com.indiegen.darktactics;
 
-public class Turns
-{
-	
+public class Turns {
+
 //	void drawTurns()
 //	{
 //		int turn =1;
@@ -28,5 +27,5 @@ public class Turns
 //		//initDebugger();
 //		turn = 1;
 //	}
-	
+
 }

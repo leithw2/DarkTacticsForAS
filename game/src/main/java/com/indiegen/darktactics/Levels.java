@@ -1,6 +1,5 @@
 package com.indiegen.darktactics;
 
-public interface Levels
-{
-	void initScreen();
+public interface Levels {
+    void initScreen();
 }
