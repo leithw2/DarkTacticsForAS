@@ -14,9 +14,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 
 public class MyDialog {
 
@@ -62,7 +62,9 @@ public class MyDialog {
                 Color.LIGHT_GRAY);
         textButtonStyle.over = tileSkin.newDrawable("white", Color.LIGHT_GRAY);
         textButtonStyle.font = _fontChat;
-        textButtonStyle.font.setScale(1, 1);
+        //textButtonStyle.font.setScale(1, 1);
+        textButtonStyle.font.getData().scaleX = 1;
+        textButtonStyle.font.getData().scaleY = 1;
         textButtonStyle.fontColor = Color.BLACK;
         tileSkin.add("default", textButtonStyle);
 
@@ -182,7 +184,8 @@ public class MyDialog {
                 Color.LIGHT_GRAY);
         textButtonStyle.over = tileSkin.newDrawable("white", Color.LIGHT_GRAY);
         textButtonStyle.font = _fontChat;
-        textButtonStyle.font.setScale(1, 1);
+
+        textButtonStyle.font.getData().scale(1);
         textButtonStyle.fontColor = Color.BLACK;
         tileSkin.add("default", textButtonStyle);
 
@@ -309,7 +312,8 @@ public class MyDialog {
                     Color.LIGHT_GRAY);
             textButtonStyle.over = tileSkin.newDrawable("white", Color.LIGHT_GRAY);
             textButtonStyle.font = _fontChat;
-            textButtonStyle.font.setScale(1, 1);
+            //textButtonStyle.font.setScale(1, 1);
+            textButtonStyle.font.getData().scale(1);
             textButtonStyle.fontColor = Color.BLACK;
             tileSkin.add("default", textButtonStyle);
 
@@ -413,7 +417,8 @@ public class MyDialog {
                 Color.LIGHT_GRAY);
         textButtonStyle.over = tileSkin.newDrawable("white", Color.LIGHT_GRAY);
         textButtonStyle.font = _fontChat;
-        textButtonStyle.font.setScale(1, 1);
+        //textButtonStyle.font.setScale(1, 1);
+        textButtonStyle.font.getData().scale(1);
         textButtonStyle.fontColor = Color.BLACK;
         tileSkin.add("default", textButtonStyle);
 

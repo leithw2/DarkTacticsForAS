@@ -72,7 +72,8 @@ public class Ui {
 
         // Store the default libgdx font under the name "default".
         BitmapFont bfont = new BitmapFont();
-        bfont.scale(0.5f);
+        bfont.getData().scale(0.5f);
+        //bfont.scale(0.5f);
         skin.add("default", bfont);
 
         // Configure a TextButtonStyle and name it "default". Skin resources are stored by type, so this doesn't overwrite the font.

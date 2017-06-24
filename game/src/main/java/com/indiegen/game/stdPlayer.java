@@ -188,7 +188,7 @@ class stdPlayer extends MyActor implements stdActor {
         if (getPlayerState() == stdPlayerState.BEING_HITTING) {
             batch.setColor(1, 1 - fontAlpha, 1 - fontAlpha, 1);
             font.setColor(1, 0, 0, fontAlpha);
-            font.setScale(1f);
+            font.getData().scale(1f);
             font.draw(batch, -getDamage() + " HP", getX(), getY() + margen + margen * (1 - fontAlpha) / 2);
         } else {
             batch.setColor(Color.WHITE);
@@ -196,7 +196,7 @@ class stdPlayer extends MyActor implements stdActor {
         if (getPlayerState() == stdPlayerState.ITEM) {
             batch.setColor(1 - fontAlpha, 1, 1 - fontAlpha, 1);
             font.setColor(0, 1, 0, fontAlpha);
-            font.setScale(1f);
+            font.getData().scale(1f);
             font.draw(batch, "+40 " + " HP", getX(), getY() + margen + margen * (1 - fontAlpha) / 2);
         } else {
             batch.setColor(Color.WHITE);
@@ -540,21 +540,4 @@ class stdPlayer extends MyActor implements stdActor {
         super.setPosition(x, y);
     }
 
-    @Override
-    public float getCenterX() {
-        // TODO: Implement this method
-        return super.getCenterX();
-    }
-
-    @Override
-    public float getCenterY() {
-        // TODO: Implement this method
-        return super.getCenterY();
-    }
-
-    @Override
-    public void setCenterPosition(float x, float y) {
-        // TODO: Implement this method
-        super.setCenterPosition(x, y);
-    }
 }

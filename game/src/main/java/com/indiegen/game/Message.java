@@ -34,7 +34,7 @@ public class Message extends Actor {
     public void draw(Batch batch, float parentAlpha) {
 
         font.setColor(Color.RED);
-        font.setScale(2f);
+        font.getData().scale(2f);
         font.draw(batch, text, 30, 100);
 
     }

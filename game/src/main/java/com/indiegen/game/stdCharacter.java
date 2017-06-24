@@ -169,23 +169,6 @@ class stdCharacter extends Actor {
         return boundingBox;
     }
 
-    @Override
-    public float getCenterX() {
-        // TODO: Implement this method
-        return super.getCenterX();
-    }
-
-    @Override
-    public float getCenterY() {
-        // TODO: Implement this method
-        return super.getCenterY();
-    }
-
-    @Override
-    public void setCenterPosition(float x, float y) {
-        // TODO: Implement this method
-        super.setCenterPosition(x, y);
-    }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {

@@ -79,7 +79,7 @@ public class HealthBar extends Actor {
         batch.begin();
         text = barHP + "";
         font.setColor(Color.RED);
-        font.setScale(.7f);
+        font.getData().scale(.7f);
         font.draw(batch, text, 130, 64);
 
     }

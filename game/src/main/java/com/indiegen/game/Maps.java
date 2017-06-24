@@ -117,7 +117,9 @@ public class Maps {
         }
 
         font.setColor(Color.RED);
-        font.setScale(.5f);
+        //font.setScale(.5f);
+        font.getData().scaleX = 0.5f;
+        font.getData().scaleY = 0.5f;
         font.draw(batch, text, 10, 13);
         //text = "";
 

@@ -27,6 +27,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="gdx" level="project" />
+    <orderEntry type="library" exported="" name="gdx-1.9.2" level="project" />
   </component>
 </module>
