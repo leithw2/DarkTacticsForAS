@@ -25,15 +25,15 @@ public class MyDialog {
     Stage stage;
     callBack myCallBack;
     Label.LabelStyle style;
-    Assests assests;
+    Assets assets;
     TextureRegion myTex;
 
 
-    public MyDialog(final callBack myCallBack, Stage stage, Assests assests) {
+    public MyDialog(final callBack myCallBack, Stage stage, Assets assets) {
 
         this.stage = stage;
         this.myCallBack = myCallBack;
-        this.assests = assests;
+        this.assets = assets;
         _fontChat = new BitmapFont();
         style = new Label.LabelStyle(_fontChat, Color.WHITE);
         Label label1 = new Label("Level 1 completed", style);
@@ -43,7 +43,7 @@ public class MyDialog {
         style.fontColor = Color.WHITE;
 
         Skin tileSkin = new Skin();
-        Texture tex = assests.hmi;
+        Texture tex = assets.hmi;
         Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
@@ -127,7 +127,7 @@ public class MyDialog {
 
         });
 
-        TextureRegion myTex = new TextureRegion(assests.Background);
+        TextureRegion myTex = new TextureRegion(assets.Background);
         myTex.flip(false, false);
         //myTex.getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
         Drawable drawable = new TextureRegionDrawable(myTex);
@@ -165,7 +165,7 @@ public class MyDialog {
         style.fontColor = Color.WHITE;
 
         Skin tileSkin = new Skin();
-        Texture tex = assests.hmi;
+        Texture tex = assets.hmi;
         Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
@@ -250,7 +250,7 @@ public class MyDialog {
 
         });
 
-        myTex = new TextureRegion(assests.Background);
+        myTex = new TextureRegion(assets.Background);
         myTex.flip(false, false);
         //myTex.getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
         Drawable drawable = new TextureRegionDrawable(myTex);
@@ -293,7 +293,7 @@ public class MyDialog {
 
 
             Skin tileSkin = new Skin();
-            Texture tex = assests.hmi;
+            Texture tex = assets.hmi;
             Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
             pixmap.setColor(Color.WHITE);
             pixmap.fill();
@@ -359,7 +359,7 @@ public class MyDialog {
             });
 
 
-            TextureRegion myTex = new TextureRegion(assests.Background);
+            TextureRegion myTex = new TextureRegion(assets.Background);
             myTex.flip(false, false);
             //myTex.getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
             Drawable drawable = new TextureRegionDrawable(myTex);
@@ -398,7 +398,7 @@ public class MyDialog {
         style.fontColor = Color.WHITE;
 
         Skin tileSkin = new Skin();
-        Texture tex = assests.hmi;
+        Texture tex = assets.hmi;
         Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
@@ -483,7 +483,7 @@ public class MyDialog {
 
         });
 
-        myTex = new TextureRegion(assests.Background);
+        myTex = new TextureRegion(assets.Background);
         myTex.flip(false, false);
         //myTex.getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
         Drawable drawable = new TextureRegionDrawable(myTex);

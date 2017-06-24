@@ -6,7 +6,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-public class Assests {
+public class Assets {
 
     public Texture texture = new Texture(Gdx.files.internal("floor.png"));
 
@@ -31,6 +31,7 @@ public class Assests {
     public Texture guard = new Texture(Gdx.files.internal("guard.png"));
     public Texture item = new Texture(Gdx.files.internal("item.png"));
     public Texture item2 = new Texture(Gdx.files.internal("item2.png"));
+
 }
 
 

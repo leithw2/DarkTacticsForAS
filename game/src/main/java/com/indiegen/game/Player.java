@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -14,7 +15,7 @@ import com.badlogic.gdx.math.collision.BoundingBox;
 
 import java.util.ArrayList;
 
-class stdPlayer extends MyActor implements stdActor {
+class Player extends MyActor implements stdActor {
 
     public void setPotions(int potions) {
         this.potions = potions;
@@ -68,78 +69,73 @@ class stdPlayer extends MyActor implements stdActor {
     public Vector2 getPosMap() {
         // TODO: Implement this method
 
-        return new Vector2(getX() / margen, getY() / margen);
+        return new Vector2(getX() / margin, getY() / margin);
     }
 
     final int ATTACK = 50;
 
     final int WALK = 20;
-    final int RUN = 50;
+    // --Commented out by Inspection (23/06/17 20:53):final int RUN = 50;
     final int GUARD = 20;
-    final int HEAVYATTACK = 90;
-    final int ROLL = 30;
-    final int JUMP = 50;
-    final int WAIT = 10;
-    final int ITEM = 50;
-    final int HURTS = 10;
+    // --Commented out by Inspection (23/06/17 20:53):final int HEAVY_ATTACK = 90;
+    // --Commented out by Inspection (23/06/17 20:53):final int ROLL = 30;
+    // --Commented out by Inspection (23/06/17 20:53):final int JUMP = 50;
+    // --Commented out by Inspection (23/06/17 20:53):final int WAIT = 10;
+    // --Commented out by Inspection (23/06/17 20:53):final int ITEM = 50;
+    // --Commented out by Inspection (23/06/17 20:53):final int HURTS = 10;
 
 
-    Texture texture;
-    TextureRegion[] attackFrames;
-    TextureRegion[] waitFrames;
-    TextureRegion[] walkFrames;
-    TextureRegion currentFrame;
-    TextureRegion turnTexture;
-    Animation attackAnimation;
-    Animation waitAnimation;
-    Animation walkAnimation;
+    private TextureRegion currentFrame;
+    private TextureRegion turnTexture;
+    private final Animation attackAnimation;
+    private final Animation waitAnimation;
+    private final Animation walkAnimation;
 
-    BoundingBox boundingBox;
-    Rectangle rectangle;
-    Rectangle rectUp;
-    Rectangle rectDown;
-    Rectangle rectLeft;
-    Rectangle rectRight;
+    private BoundingBox boundingBox;
+    private Rectangle rectangle;
+    // --Commented out by Inspection (23/06/17 20:53):Rectangle rectUp;
+    // --Commented out by Inspection (23/06/17 20:53):Rectangle rectDown;
+    // --Commented out by Inspection (23/06/17 20:53):Rectangle rectLeft;
+    // --Commented out by Inspection (23/06/17 20:53):Rectangle rectRight;
 
-    int margen = 64;
-    int velX = 0;
-    Color color;
-    int FRAME_COLS = 3;
-    int FRAME_ROWS = 1;
-    float delta = 0;
-    int dir;
-    boolean flipX = false;
-    boolean flipY = false;
-    int state = 0;
-    ShapeRenderer shape;
-    float curX;
-    float curY;
-    stdPlayerState actorState;
-    int HP;
-    int maxHP = 80;
-    boolean dead = false;
-    int fatigue = 0;
-    Boolean acting = false;
-    int potions = 1;
-    int attack;
+    private final int margin = 64;
+    private int velX = 0;
+    private Color color;
+    // --Commented out by Inspection (23/06/17 20:53):int FRAME_COLS = 3;
+    // --Commented out by Inspection (23/06/17 20:53):int FRAME_ROWS = 1;
+    private float delta = 0;
+    private int dir;
+    private boolean flipX = false;
+    private boolean flipY = false;
+    private int state = 0;
+    private final ShapeRenderer shape;
+    private float curX;
+    private float curY;
+    private stdPlayerState actorState;
+    private int HP;
+    private final int maxHP = 80;
+    private boolean dead = false;
+    private int fatigue = 0;
+    private Boolean acting = false;
+    private int potions = 1;
+    private int attack;
 
-    public stdPlayer(Texture settexture) {
+    public Player(Texture texture) {
 
-        rects = new ArrayList<MyRect>();
+        rects = new ArrayList<>();
         boundingBox = new BoundingBox();
 
         setHP(maxHP);
         setAttack(30);
-        texture = settexture;
 
         setName("player");
-        setPosition(margen * 3, margen * 3);
-        setWidth(margen);
+        setPosition(margin * 3, margin * 3);
+        setWidth(margin);
         attack = 100;
-        setHeight(margen);
-        rectangle = new Rectangle(getX(), getY(), margen, margen);
+        setHeight(margin);
+        rectangle = new Rectangle(getX(), getY(), margin, margin);
 
-        attackFrames = new TextureRegion[7];
+        TextureRegion[] attackFrames = new TextureRegion[7];
 
         attackFrames[0] = new TextureRegion(texture, 0, 0, 32, 32);
         attackFrames[1] = new TextureRegion(texture, 32, 0, 32, 32);
@@ -152,14 +148,14 @@ class stdPlayer extends MyActor implements stdActor {
 
         attackAnimation = new Animation(.08f, attackFrames);
 
-        waitFrames = new TextureRegion[2];
+        TextureRegion[] waitFrames = new TextureRegion[2];
 
         waitFrames[0] = new TextureRegion(texture, 0, 0, 32, 32);
         waitFrames[1] = new TextureRegion(texture, 96, 32, 32, 32);
 
         waitAnimation = new Animation(0.8f, waitFrames);
 
-        walkFrames = new TextureRegion[2];
+        TextureRegion[] walkFrames = new TextureRegion[2];
 
         walkFrames[0] = new TextureRegion(texture, 32, 64, 32, 32);
         walkFrames[1] = new TextureRegion(texture, 32, 64, 32, 32);
@@ -173,7 +169,7 @@ class stdPlayer extends MyActor implements stdActor {
         shape = new ShapeRenderer();
 
         actorState = stdPlayerState.WAITING;
-        rects.add(new MyRect(getX(), getY(), margen, margen));
+        rects.add(new MyRect(getX(), getY(), margin, margin));
         setTurnTexture(new TextureRegion(texture, 64, 64, 16, 16));
 
 
@@ -182,14 +178,13 @@ class stdPlayer extends MyActor implements stdActor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-        // TODO: Implement this method
         delta += Gdx.graphics.getDeltaTime();
 
         if (getPlayerState() == stdPlayerState.BEING_HITTING) {
             batch.setColor(1, 1 - fontAlpha, 1 - fontAlpha, 1);
             font.setColor(1, 0, 0, fontAlpha);
             font.getData().scale(1f);
-            font.draw(batch, -getDamage() + " HP", getX(), getY() + margen + margen * (1 - fontAlpha) / 2);
+            font.draw(batch, -getDamage() + " HP", getX(), getY() + margin + margin * (1 - fontAlpha) / 2);
         } else {
             batch.setColor(Color.WHITE);
         }
@@ -197,7 +192,7 @@ class stdPlayer extends MyActor implements stdActor {
             batch.setColor(1 - fontAlpha, 1, 1 - fontAlpha, 1);
             font.setColor(0, 1, 0, fontAlpha);
             font.getData().scale(1f);
-            font.draw(batch, "+40 " + " HP", getX(), getY() + margen + margen * (1 - fontAlpha) / 2);
+            font.draw(batch, "+40 " + " HP", getX(), getY() + margin + margin * (1 - fontAlpha) / 2);
         } else {
             batch.setColor(Color.WHITE);
         }
@@ -226,7 +221,7 @@ class stdPlayer extends MyActor implements stdActor {
             currentFrame.flip(true, false);
         }
 
-        setRectangle(new Rectangle(getX(), getY(), margen, margen));
+        setRectangle(new Rectangle(getX(), getY(), margin, margin));
         batch.draw(currentFrame, getX(), getY(), getWidth(), getHeight(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
         //batch.draw(texture, getX(), getY(), 0, 0 , getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation(), (int)getWidth() * 0, (int)getHeight() * 0, texture.getWidth(), texture.getHeight(), getFlipX(), getFlipY());
         //batch.draw(texture, getX(), getY(), getWidth()/3,getHeight()/3);
@@ -342,10 +337,10 @@ class stdPlayer extends MyActor implements stdActor {
         // TODO: Implement this method
         rects.clear();
 
-        rects.add(new MyRect(getX(), getY() + margen, margen, margen));
-        rects.add(new MyRect(getX(), getY() - margen, margen, margen));
-        rects.add(new MyRect(getX() - margen, getY(), margen, margen));
-        rects.add(new MyRect(getX() + margen, getY(), margen, margen));
+        rects.add(new MyRect(getX(), getY() + margin, margin, margin));
+        rects.add(new MyRect(getX(), getY() - margin, margin, margin));
+        rects.add(new MyRect(getX() - margin, getY(), margin, margin));
+        rects.add(new MyRect(getX() + margin, getY(), margin, margin));
 
         //shape.setColor(1, 0, 0, .2f);
     }
@@ -356,10 +351,10 @@ class stdPlayer extends MyActor implements stdActor {
         // TODO: Implement this method
         rects.clear();
 
-        rects.add(new MyRect(getX(), getY() + margen, margen, margen));
-        rects.add(new MyRect(getX(), getY() - margen, margen, margen));
-        rects.add(new MyRect(getX() - margen, getY(), margen, margen));
-        rects.add(new MyRect(getX() + margen, getY(), margen, margen));
+        rects.add(new MyRect(getX(), getY() + margin, margin, margin));
+        rects.add(new MyRect(getX(), getY() - margin, margin, margin));
+        rects.add(new MyRect(getX() - margin, getY(), margin, margin));
+        rects.add(new MyRect(getX() + margin, getY(), margin, margin));
 
         //shape.setColor(1, 1, 1, .2f);
     }
@@ -497,33 +492,11 @@ class stdPlayer extends MyActor implements stdActor {
     @Override
     public boolean isTouched(float x, float y) {
 
-        if (getPlayerState() == stdPlayerState.WAITING_TO_MOVE) {
+        //if (getPlayerState() == stdPlayerState.WAITING_TO_MOVE) {
 
-        }
+        //}
 
         return false;
-    }
-
-
-    @Override
-    public void setRotation(float degrees) {
-        // TODO: Implement this method
-        super.setRotation(degrees);
-    }
-
-    @Override
-    public float getRotation() {
-        // TODO: Implement this method
-        return super.getRotation();
-    }
-
-    @Override
-    public void scaleBy(float scale) {
-        // TODO: Implement this method
-
-
-        super.scaleBy(scale);
-
     }
 
     @Override
@@ -534,10 +507,5 @@ class stdPlayer extends MyActor implements stdActor {
         super.act(delta);
     }
 
-    @Override
-    public void setPosition(float x, float y) {
-        // TODO: Implement this method
-        super.setPosition(x, y);
-    }
 
 }

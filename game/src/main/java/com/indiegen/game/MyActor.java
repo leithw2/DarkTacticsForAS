@@ -82,7 +82,7 @@ public class MyActor extends Actor implements stdActor {
     public Vector2 getPosMap() {
         // TODO: Implement this method
 
-        return new Vector2(getX() / margen, getY() / margen);
+        return new Vector2(getX() / margin, getY() / margin);
     }
 
     @Override

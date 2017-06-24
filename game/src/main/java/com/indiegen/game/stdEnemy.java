@@ -53,7 +53,7 @@ class stdEnemy extends MyActor implements stdActor {
     public Vector2 getPosMap() {
         // TODO: Implement this method
 
-        return new Vector2(getX() / margen, getY() / margen);
+        return new Vector2(getX() / margin, getY() / margin);
     }
 
     @Override
@@ -179,10 +179,10 @@ class stdEnemy extends MyActor implements stdActor {
         // TODO: Implement this method
         rects.clear();
 
-        rects.add(new MyRect(getX(), getY() + margen, margen, margen));
-        rects.add(new MyRect(getX(), getY() - margen, margen, margen));
-        rects.add(new MyRect(getX() - margen, getY(), margen, margen));
-        rects.add(new MyRect(getX() + margen, getY(), margen, margen));
+        rects.add(new MyRect(getX(), getY() + margin, margin, margin));
+        rects.add(new MyRect(getX(), getY() - margin, margin, margin));
+        rects.add(new MyRect(getX() - margin, getY(), margin, margin));
+        rects.add(new MyRect(getX() + margin, getY(), margin, margin));
 
     }
 
@@ -191,10 +191,10 @@ class stdEnemy extends MyActor implements stdActor {
         // TODO: Implement this method
         rects.clear();
 
-        rects.add(new MyRect(getX(), getY() + margen, margen, margen));
-        rects.add(new MyRect(getX(), getY() - margen, margen, margen));
-        rects.add(new MyRect(getX() - margen, getY(), margen, margen));
-        rects.add(new MyRect(getX() + margen, getY(), margen, margen));
+        rects.add(new MyRect(getX(), getY() + margin, margin, margin));
+        rects.add(new MyRect(getX(), getY() - margin, margin, margin));
+        rects.add(new MyRect(getX() - margin, getY(), margin, margin));
+        rects.add(new MyRect(getX() + margin, getY(), margin, margin));
 
     }
 
@@ -234,7 +234,7 @@ class stdEnemy extends MyActor implements stdActor {
     Rectangle rectDown;
     Rectangle rectLeft;
     Rectangle rectRight;
-    //int margen;
+    //int margin;
     int velX = 0;
     Color color;
     int FRAME_COLS = 3;
@@ -266,17 +266,17 @@ class stdEnemy extends MyActor implements stdActor {
         attack = 10;
         rects = new ArrayList<MyRect>();
 
-        //margen = 64;
-        setWidth(margen);
-        setHeight(margen);
+        //margin = 64;
+        setWidth(margin);
+        setHeight(margin);
 
         boundingBox = new BoundingBox();
         font = new BitmapFont();
-        rectangle = new Rectangle(getX(), getY(), margen, margen);
-//		rectUp = new Rectangle(getX(), getY() + margen, margen, margen);
-//		rectDown = new Rectangle(getX(), getY() - margen, margen, margen);
-//		rectLeft = new Rectangle(getX() - margen, getY(), margen, margen);
-//		rectRight = new Rectangle(getX() + margen, getY(), margen, margen);
+        rectangle = new Rectangle(getX(), getY(), margin, margin);
+//		rectUp = new Rectangle(getX(), getY() + margin, margin, margin);
+//		rectDown = new Rectangle(getX(), getY() - margin, margin, margin);
+//		rectLeft = new Rectangle(getX() - margin, getY(), margin, margin);
+//		rectRight = new Rectangle(getX() + margin, getY(), margin, margin);
 ////
 //		walkFrames = new TextureRegion[4];
 //
@@ -301,7 +301,7 @@ class stdEnemy extends MyActor implements stdActor {
 
         //playerState = stdPlayerState.WAITING;
         actorState = stdPlayerState.WAITING;
-        rects.add(new MyRect(getX(), getY(), margen, margen));
+        rects.add(new MyRect(getX(), getY(), margin, margin));
         //setTurnTexture(waitFrames[0]);
 
     }
@@ -322,10 +322,10 @@ class stdEnemy extends MyActor implements stdActor {
         boundingBox = new BoundingBox();
         font = new BitmapFont();
         rectangle = new Rectangle(getX(), getY(), margen, margen);
-//		rectUp = new Rectangle(getX(), getY() + margen, margen, margen);
-//		rectDown = new Rectangle(getX(), getY() - margen, margen, margen);
-//		rectLeft = new Rectangle(getX() - margen, getY(), margen, margen);
-//		rectRight = new Rectangle(getX() + margen, getY(), margen, margen);
+//		rectUp = new Rectangle(getX(), getY() + margin, margin, margin);
+//		rectDown = new Rectangle(getX(), getY() - margin, margin, margin);
+//		rectLeft = new Rectangle(getX() - margin, getY(), margin, margin);
+//		rectRight = new Rectangle(getX() + margin, getY(), margin, margin);
 //
         dir = 1;
 
@@ -395,7 +395,7 @@ class stdEnemy extends MyActor implements stdActor {
             batch.setColor(1, 1 - fontAlpha, 1 - fontAlpha, 1);
             font.setColor(1, 0, 0, fontAlpha);
             font.getData().scale(1f);
-            font.draw(batch, -getDamage() + " HP", getX(), getY() + margen + margen * (1 - fontAlpha) / 2);
+            font.draw(batch, -getDamage() + " HP", getX(), getY() + margin + margin * (1 - fontAlpha) / 2);
         } else {
             batch.setColor(Color.WHITE);
         }
@@ -420,11 +420,11 @@ class stdEnemy extends MyActor implements stdActor {
 //		{
 //			batch.end();
 //
-//			rectangle.set(getX(), getY(), margen, margen);
-//			rectUp.set(getX(), getY() + margen, margen, margen);
-//			rectDown.set(getX(), getY() - margen, margen, margen);
-//			rectLeft.set(getX() - margen, getY(), margen, margen);
-//			rectRight.set(getX() + margen, getY(), margen, margen);
+//			rectangle.set(getX(), getY(), margin, margin);
+//			rectUp.set(getX(), getY() + margin, margin, margin);
+//			rectDown.set(getX(), getY() - margin, margin, margin);
+//			rectLeft.set(getX() - margin, getY(), margin, margin);
+//			rectRight.set(getX() + margin, getY(), margin, margin);
 //
 //			shape.setProjectionMatrix(batch.getProjectionMatrix());
 //
@@ -470,13 +470,13 @@ class stdEnemy extends MyActor implements stdActor {
             currentFrame.flip(true, false);
         }
 
-        setWidth(margen);
-        setHeight(margen);
+        setWidth(margin);
+        setHeight(margin);
         //currentFrame=walkFrames[1];
         //batch.setColor(getX(),getY(),getWidth(),getHeight());
         //batch.draw(currentFrame, getX(), getY(), getWidth()/2, getHeight()/2 , getWidth() * 3, getHeight() * 3, getScaleX(), getScaleY(), getRotation());
 
-        setRectangle(new Rectangle(getX(), getY(), margen, margen));
+        setRectangle(new Rectangle(getX(), getY(), margin, margin));
 
         batch.draw(currentFrame, getX(), getY(), getWidth(), getHeight(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
         batch.setColor(Color.WHITE);
@@ -627,27 +627,27 @@ class stdEnemy extends MyActor implements stdActor {
 //		{
 //
 //			setCurX(getX());
-//			setCurY(getY() + margen);
+//			setCurY(getY() + margin);
 //			setState(2);
 //			return true;
 //		}
 //		if (rectDown.contains(x, y) && state == 0)
 //		{
 //			setCurX(getX());
-//			setCurY(getY() - margen);
+//			setCurY(getY() - margin);
 //			setState(3);
 //			return true;
 //		}
 //		if (rectLeft.contains(x, y) && state == 0)
 //		{
-//			setCurX(getX() - margen);
+//			setCurX(getX() - margin);
 //			setCurY(getY());
 //			setState(4);
 //			return true;
 //		}
 //		if (rectRight.contains(x, y) && state == 0)
 //		{
-//			setCurX(getX() + margen);
+//			setCurX(getX() + margin);
 //			setCurY(getY());
 //			setState(5);
 //			return true;

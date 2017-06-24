@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Maps {
-    //Assests assests;
+    //Assets assets;
     Batch batch;
     int margen = 64;
     int tileSize = 32;
@@ -27,7 +27,7 @@ public class Maps {
 
     Animation torchAnimation;
 
-    Assests assests;
+    Assets assets;
 
     public int[][] map = {
             {3, 3, 3, 3, 3, 3, 6, 3, 3, 3,},
@@ -53,21 +53,21 @@ public class Maps {
             {6, 3, 3, 6, 3, 3, 6, 3, 3, 6,},
     };
 
-    public Maps(Assests assests)
+    public Maps(Assets assets)
 
     {
         torches = new TextureRegion[3];
 
-        this.assests = assests;
-        tilesTexture = assests.tiles;
+        this.assets = assets;
+        tilesTexture = assets.tiles;
         tileRegion = new TextureRegion(tilesTexture, tileSize * 19, tileSize * 6, tileSize, tileSize);
         brickRegion = new TextureRegion(tilesTexture, tileSize * 7, tileSize * 7, tileSize, tileSize);
         grassRegion = new TextureRegion(tilesTexture, tileSize * 1, tileSize * 1, tileSize, tileSize);
         groundRegion = new TextureRegion(tilesTexture, tileSize * 0, tileSize * 1, tileSize, tileSize);
         doorRegion = new TextureRegion(tilesTexture, tileSize * 5, tileSize * 19, tileSize, tileSize);
-        torches[0] = (new TextureRegion(assests.torch, tileSize * 0, tileSize * 0, tileSize, tileSize));
-        torches[1] = (new TextureRegion(assests.torch, tileSize * 1, tileSize * 0, tileSize, tileSize));
-        torches[2] = (new TextureRegion(assests.torch, tileSize * 0, tileSize * 1, tileSize, tileSize));
+        torches[0] = (new TextureRegion(assets.torch, tileSize * 0, tileSize * 0, tileSize, tileSize));
+        torches[1] = (new TextureRegion(assets.torch, tileSize * 1, tileSize * 0, tileSize, tileSize));
+        torches[2] = (new TextureRegion(assets.torch, tileSize * 0, tileSize * 1, tileSize, tileSize));
 
         torchAnimation = new Animation(0.2f, torches);
         torchAnimation.setPlayMode(Animation.PlayMode.LOOP);

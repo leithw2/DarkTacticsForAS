@@ -7,7 +7,7 @@ public class Turns {
 //		int turn =1;
 //		int sangria= 16;
 //
-//		for (MyActor actor : readys)
+//		for (MyActor actor : ready)
 //		{
 //
 //

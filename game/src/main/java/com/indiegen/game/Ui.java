@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 public class Ui {
     Skin skin;
-    Assests assests;
+    Assets assets;
 
     Texture tilesTexture;
 
@@ -42,22 +42,22 @@ public class Ui {
     Texture item2;
     TextButton.TextButtonStyle itemStyle;
 
-    public Ui(final callBack myCallBack, Assests assests) {
+    public Ui(final callBack myCallBack, Assets assets) {
 
-        this.assests = assests;
+        this.assets = assets;
         skin = new Skin();
 
-        tilesTexture = assests.tiles;
+        tilesTexture = assets.tiles;
         tileRegion = new TextureRegion(tilesTexture, tileSize * 19, tileSize * 6, tileSize, tileSize);
         brickRegion = new TextureRegion(tilesTexture, tileSize * 7, tileSize * 7, tileSize, tileSize);
         grassRegion = new TextureRegion(tilesTexture, tileSize * 1, tileSize * 1, tileSize, tileSize);
         groundRegion = new TextureRegion(tilesTexture, tileSize * 1, tileSize * 16, tileSize, tileSize);
-        button1 = new TextureRegion(assests.button1, 0, 0, 32, 32);
-        walkbutton = new TextureRegion(assests.walkbutton, 0, 0, 32, 32);
-        guard = assests.guard;
-        item = assests.item;
-        item2 = assests.item2;
-        closeUp = new CloseUp(assests);
+        button1 = new TextureRegion(assets.button1, 0, 0, 32, 32);
+        walkbutton = new TextureRegion(assets.walkbutton, 0, 0, 32, 32);
+        guard = assets.guard;
+        item = assets.item;
+        item2 = assets.item2;
+        closeUp = new CloseUp(assets);
         // Generate a 1x1 white texture and store it in the skin named "white".
         Pixmap pixmap = new Pixmap(100, 100, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.GREEN);

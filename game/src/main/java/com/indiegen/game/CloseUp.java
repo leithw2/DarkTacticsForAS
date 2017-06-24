@@ -9,11 +9,11 @@ public class CloseUp extends Actor {
 
     ShapeRenderer shape;
     Texture closeUp;
-    Assests assests;
+    Assets assets;
 
-    public CloseUp(Assests assests) {
-        this.assests = assests;
-        closeUp = assests.heroCloseUp;
+    public CloseUp(Assets assets) {
+        this.assets = assets;
+        closeUp = assets.heroCloseUp;
 
     }
 
