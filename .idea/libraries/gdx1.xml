@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="gdx1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/gdx-game/libs/gdx.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
